@@ -17,7 +17,7 @@ const updateTask = async (id, task) => {
   const checkedId = ObjectID.isValid(id);
   if (!checkedId) return { status: 404, err: { message: 'task not found' } };
 
-  const task = await taskModel.updateTask(id, task);
+  const result = await taskModel.updateTask(id, task);
   return { status: 200, data: task };
 };
 

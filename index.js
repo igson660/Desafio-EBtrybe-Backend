@@ -6,7 +6,7 @@ const Task = require('./controllers/taskController');
 
 
 // app.post('/user', Users.createUser);
-app.get('/user', Task.GetAll);
+app.get('/user', Task.findAllTasks);
 // app.get('/user/:id', validationToken, Users.UserGetById);
 
 
