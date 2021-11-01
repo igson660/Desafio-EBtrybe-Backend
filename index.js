@@ -1,5 +1,13 @@
 const express = require('express');
+const app = express();
+const { PORT } = process.env;
 
-const app = express()
+const Task = require('./controllers/taskController');
 
-app.listen(3001, () => console.log('Rodando na porta 3001'))
+
+// app.post('/user', Users.createUser);
+app.get('/user', Task.GetAll);
+// app.get('/user/:id', validationToken, Users.UserGetById);
+
+
+app.listen(PORT, () => console.log('Rodando na porta 3001'))
