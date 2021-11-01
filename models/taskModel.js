@@ -23,9 +23,9 @@ const findByIdTask = async (id) => {
 };
 
 
-const updateTask = async (id, data) => {
+const updateTask = async (id, task) => {
   const db = await connect();
-  await db.collection('tasks').updateOne({ _id: ObjectID(id) }, { $set: { data } });
+  await db.collection('tasks').updateOne({ _id: ObjectID(id) }, { $set: { task } });
   const result = await findByIdTask(id);
   return result;
 };
