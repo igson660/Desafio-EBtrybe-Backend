@@ -10,7 +10,7 @@ const addTask = async (req, res) => {
 };
 
 const findAllTasks = async (_req, res) => {
-  const tasks = await userService.findAllTasks();
+  const tasks = await taskService.findAllTasks();
 
   res.status(200).json({ tasks });
 };
@@ -18,7 +18,7 @@ const findAllTasks = async (_req, res) => {
 const updateTask = async (req, res) => {
   const { id } = req.params;
   const { _id } = req.user;
-  const { status, data, err } = await userService.updateTask(id, req.body, _id);
+  const { status, data, err } = await taskService.updateTask(id, req.body, _id);
   if (err) return res.status(status).json(err);
 
   res.status(status).json(data);
@@ -27,7 +27,7 @@ const updateTask = async (req, res) => {
 const excludeTask = async (req, res) => {
   const { id } = req.params;
 
-  const result = await userService.excludeTask(id);
+  const result = await taskService.excludeTask(id);
 
   if (result.message) return res.status(result.status).json({ message: result.message });
 

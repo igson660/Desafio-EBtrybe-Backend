@@ -8,7 +8,7 @@ const addTask = async (task) => {
   return { _id: user.insertedId, task };
 };
 
-const findAllTask = async () => {
+const findAllTasks = async () => {
   const db = await connect();
   const result = await db.collection('tasks').find().toArray();
 
@@ -37,7 +37,7 @@ const excludeTask = async (id) => {
 
 module.exports = {
   addTask,
-  findAllTask,
+  findAllTasks,
   updateTask,
   excludeTask
 };
