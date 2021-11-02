@@ -17,14 +17,14 @@ const findAllTasks = async (_req, res) => {
 
 const updateTask = async (req, res) => {
   const { _id, task } = req.body;
-  const result = await taskService.updateTask(_id, task);
-  if (result.message) return res.status(result.status).json(result.message);
+  const { message, status, data } = await taskService.updateTask(_id, task);
+  if (message) return res.status(status).json(message);
 
-  res.status(result.status).json({ task: result.data });
+  res.status(status).json({ task: data });
 };
 
 const excludeTask = async (req, res) => {
-  const { _id  } = req.body;
+  const { _id } = req.body;
   const result = await taskService.excludeTask(_id);
 
   if (result) return res.status(result.status).json({ message: result.message });

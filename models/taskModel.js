@@ -32,7 +32,7 @@ const updateTask = async (id, task) => {
 
 const excludeTask = async (id) => {
   const db = await connect();
-  await db.collection('taks').deleteOne({ _id: ObjectID(id) });
+  await db.collection('tasks').deleteOne({ _id: ObjectID(id) });
 };
 
 module.exports = {
