@@ -10,7 +10,7 @@ const Task = require('./controllers/taskController');
 app.post('/', Task.addTask);
 app.get('/', Task.findAllTasks);
 app.put('/', Task.updateTask);
-app.delete('/', Task.findAllTasks);
+app.delete('/', Task.excludeTask);
 
 
 app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`))

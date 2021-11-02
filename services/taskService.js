@@ -5,7 +5,7 @@ const addTask = async (task) => {
   if(!task) return { status: 422, message: 'enter a correct task' }
   const addedtask = await taskModel.addTask(task);
 
-  return { status: 201, task: addedtask };
+  return { status: 201, data: addedtask };
 };
 
 const findAllTasks = async () => {
@@ -16,7 +16,7 @@ const findAllTasks = async () => {
 
 const updateTask = async (id, task) => {
   const checkedId = ObjectID.isValid(id);
-  if (!checkedId) return { status: 404, err: { message: 'task not found' } };
+  if (!checkedId) return { status: 404, message: 'task not found' };
 
   const result = await taskModel.updateTask(id, task);
   return { status: 200, data: result.task };
