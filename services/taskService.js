@@ -11,7 +11,7 @@ const addTask = async (task) => {
 const findAllTasks = async () => {
   const tasks = await taskModel.findAllTasks();
 
-  return tasks;
+  return {status: 200, tasks };
 };
 
 const updateTask = async (id, task) => {

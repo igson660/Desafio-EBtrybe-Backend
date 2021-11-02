@@ -10,9 +10,9 @@ const addTask = async (req, res) => {
 };
 
 const findAllTasks = async (_req, res) => {
-  const tasks = await taskService.findAllTasks();
+  const result = await taskService.findAllTasks();
 
-  res.status(200).json({ tasks });
+  res.status(result.status).json({ task: result.tasks });
 };
 
 const updateTask = async (req, res) => {
