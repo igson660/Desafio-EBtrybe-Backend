@@ -6,7 +6,7 @@ const addTask = async (req, res) => {
 
   if (result.message) return res.status(result.status).json({ message: result.message });
 
-  res.status(201).json({ result });
+  res.status(result.status).json({ task: result.task });
 };
 
 const findAllTasks = async (_req, res) => {

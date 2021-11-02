@@ -2,9 +2,10 @@ const { ObjectID } = require('mongodb');
 const taskModel = require('../models/taskModel');
 
 const addTask = async (task) => {
+  if(!task) return { status: 422, message: 'enter a correct task' }
   const addedtask = await taskModel.addTask(task);
 
-  return addedtask;
+  return { status: 201, task: addedtask };
 };
 
 const findAllTasks = async () => {
