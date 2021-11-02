@@ -9,7 +9,8 @@ const Task = require('./controllers/taskController');
 
 app.post('/', Task.addTask);
 app.get('/', Task.findAllTasks);
-// app.get('/user/:id', validationToken, Users.UserGetById);
+app.put('/', Task.updateTask);
+app.delete('/', Task.findAllTasks);
 
 
 app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`))

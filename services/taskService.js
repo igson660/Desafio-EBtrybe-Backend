@@ -19,7 +19,7 @@ const updateTask = async (id, task) => {
   if (!checkedId) return { status: 404, err: { message: 'task not found' } };
 
   const result = await taskModel.updateTask(id, task);
-  return { status: 200, data: task };
+  return { status: 200, data: result.task };
 };
 
 const excludeTask = async (id) => {

@@ -16,12 +16,11 @@ const findAllTasks = async (_req, res) => {
 };
 
 const updateTask = async (req, res) => {
-  const { id } = req.params;
-  const { _id } = req.user;
-  const { status, data, err } = await taskService.updateTask(id, req.body, _id);
-  if (err) return res.status(status).json(err);
+  const { _id, task } = req.body;
+  const result = await taskService.updateTask(_id, task);
+  if (result.err) return res.status(result.status).json(result.err);
 
-  res.status(status).json(data);
+  res.status(result.status).json(result.data);
 };
 
 const excludeTask = async (req, res) => {
