@@ -9,6 +9,9 @@ app.use(cors())
 const { PORT= 3001 } = process.env;
 const Task = require('./controllers/taskController');
 
+app.options('*', cors());
+
+// routes
 app.post('/', Task.addTask);
 app.get('/', Task.findAllTasks);
 app.put('/', Task.updateTask);
